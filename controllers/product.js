@@ -2,6 +2,7 @@ const Product = require('../model/Product');
 
 module.exports = {
 	async createProduct(req, res) {
+		// minor validation
 		if (req.body != '' || null) {
 			const { name, description, price, category, image, color } = req.body;
 			const product = new Product({
@@ -26,6 +27,14 @@ module.exports = {
 		try {
 			const allProducts = await Product.find({});
 			res.status(200).json({ allProducts });
+		} catch (error) {
+			res.status(500).json({ message: error.message });
+		}
+	},
+	async getOneProduct(req, res) {
+		try {
+			const product = await Product.findById(req.params.id);
+			res.status(200).json({ product });
 		} catch (error) {
 			res.status(500).json({ message: error.message });
 		}
