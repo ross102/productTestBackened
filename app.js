@@ -4,11 +4,12 @@ const cors = require('cors')
 const port = process.env.PORT || 5000
 
 
-// process.env.NODE_ENV !== 'production' && require('dotenv').config();
+ process.env.NODE_ENV !== 'production' && require('dotenv').config();
 //require api route
 const productApi = require('./api/product');
 // database
-mongoose.connect('mongodb://localhost:27017/product', {
+//mongodb://product:product101@ds213529.mlab.com:13529/product
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/product', {
 	useNewUrlParser: true,
 	useCreateIndex: true,
 	useFindAndModify: false,
