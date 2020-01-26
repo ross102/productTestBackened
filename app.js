@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000
 //require api route
 const productApi = require('./api/product');
 // database
-//mongodb://product:product101@ds213529.mlab.com:13529/product
+
 mongoose.connect(process.env.MONGODB_URI, {
 	useNewUrlParser: true,
 	useCreateIndex: true,
@@ -28,10 +28,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// express middleware
-// app.use(function(req, res, next) {
-// 	next();
-// });
 
 app.get('/', (req, res) => {
 	res.send('node assessment');
