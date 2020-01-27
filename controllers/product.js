@@ -26,7 +26,15 @@ module.exports = {
 	async getProducts(req, res) {
 		try {
 			const allProducts = await Product.find({});
-			res.status(200).json({ allProducts });
+			let someProperties = [];
+			for (const element of allProducts) {
+				someProperties.push({
+					id: element.id,
+					name: element.name,
+					price: element.price
+				});
+			}
+			res.status(200).json({ allProducts: someProperties });
 		} catch (error) {
 			res.status(500).json({ message: error.message });
 		}
