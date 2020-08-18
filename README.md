@@ -4,8 +4,6 @@
 <p> cd  server and run npm start</p>
 
 
-<h4>BaseUrl on heroku</h4>
-<a href="https://api-product-test.herokuapp.com/"> Link </a>
 
 <h4>  End points </h4>
 <b> POST - https://api-product-test.herokuapp.com/product  </b>
